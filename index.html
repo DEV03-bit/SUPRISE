@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Diwali Surprise ❤️</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Poppins:wght@300;400;600;700&family=Dancing+Script:wght@600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #09020e;
+    color: white;
+    overflow-x: hidden;
+}
+
+:root {
+    --gold: #ffd36a;
+    --orange: #ff7800;
+    --pink: #ff5b9d;
+}
+
+/* BACKGROUND */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    background:
+    radial-gradient(circle at 50% 40%, #54132b 0%, transparent 45%),
+    radial-gradient(circle at 10% 80%, #431000 0%, transparent 35%),
+    linear-gradient(135deg, #08020f, #260817, #100315);
+}
+
+.stars {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.star {
+    position: absolute;
+    color: #ffd66e;
+    animation: twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle {
+    from { opacity: .2; transform: scale(.7); }
+    to { opacity: 1; transform: scale(1.3); }
+}
+
+/* PAGES */
+
+.page {
+    min-height: 100vh;
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 35px 18px;
+    position: relative;
+    overflow: hidden;
+}
+
+.page.active {
+    display: flex;
+    animation: pageEnter 1s ease;
+}
+
+@keyframes pageEnter {
+    from { opacity: 0; transform: translateY(25px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* COMMON TEXT */
+
+.gold {
+    color: var(--gold);
+    text-shadow: 0 0 15px #ff9e00, 0 0 35px #ff6a00;
+}
+
+.small-title {
+    color: #ffdb8b;
+    letter-spacing: 5px;
+    font-size: 12px;
+    margin-bottom: 25px;
+}
+
+.heading {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(35px, 8vw, 75px);
+    line-height: 1.3;
+}
+
+.subtitle {
+    color: #ffe5d0;
+    margin-top: 18px;
+    font-size: 15px;
+    letter-spacing: 1px;
+}
+
+/* BUTTON */
+
+.btn {
+    border: 1px solid #ffdb80;
+    background: linear-gradient(135deg, #ffb52d, #ff6500);
+    color: #310b09;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 16px 35px;
+    border-radius: 50px;
+    margin-top: 35px;
+    cursor: pointer;
+    box-shadow: 0 0 20px #ff9b00, 0 0 50px #ff650055;
+    transition: .35s;
+    font-size: 13px;
+}
+
+.btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 35px #ffba38;
+}
+
+/* FIREWORKS */
+
+.firework {
+    position: absolute;
+    font-size: 38px;
+    animation: firework 1.8s infinite;
+    filter: drop-shadow(0 0 12px orange);
+}
+
+.f1 { left: 8%; top: 25%; }
+.f2 { right: 8%; top: 28%; animation-delay: .6s; }
+.f3 { left: 13%; bottom: 20%; animation-delay: 1s; }
+.f4 { right: 13%; bottom: 20%; animation-delay: .3s; }
+
+@keyframes firework {
+    0% { transform: scale(.5) rotate(0deg); opacity: .2; }
+    50% { transform: scale(1.5) rotate(30deg); opacity: 1; }
+    100% { transform: scale(.7) rotate(60deg); opacity: .3; }
+}
+
+/* FLOATING EMOJIS */
+
+.floating {
+    position: absolute;
+    bottom: -60px;
+    font-size: 28px;
+    animation: floatUp 7s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes floatUp {
+    to {
+        transform: translateY(-115vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* DIYA */
+
+.diya {
+    font-size: 65px;
+    margin: 20px;
+    animation: diyaGlow 1.5s infinite alternate;
+}
+
+@keyframes diyaGlow {
+    from { filter: drop-shadow(0 0 5px orange); }
+    to { filter: drop-shadow(0 0 25px gold); }
+}
+
+/* PAGE 1 */
+
+.intro-line {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(24px, 5vw, 42px);
+    color: #ffe3a3;
+    margin-bottom: 20px;
+}
+
+.happy {
+    animation: happyGlow 2s infinite alternate;
+}
+
+@keyframes happyGlow {
+    from { text-shadow: 0 0 10px orange; }
+    to { text-shadow: 0 0 35px gold, 0 0 65px #ff5700; }
+}
+
+/* PAGE 2 */
+
+.namaste {
+    font-size: 85px;
+    animation: namaste 2s infinite alternate;
+}
+
+@keyframes namaste {
+    to { transform: translateY(-12px) scale(1.08); }
+}
+
+.welcome-card {
+    max-width: 550px;
+    width: 100%;
+    padding: 35px 22px;
+    border: 1px solid #ffcf68;
+    border-radius: 25px;
+    background: #ffffff0b;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 0 35px #ff9b1925;
+}
+
+/* PAGE 3 */
+
+.surprise-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(35px, 7vw, 58px);
+    color: #ffda82;
+}
+
+.box-container {
+    margin-top: 65px;
+    cursor: pointer;
+    position: relative;
+    width: 210px;
+    height: 190px;
+    perspective: 800px;
+    transition: .5s;
+}
+
+.gift-box {
+    position: absolute;
+    bottom: 0;
+    width: 190px;
+    height: 125px;
+    left: 10px;
+    background: linear-gradient(135deg, #e62c50, #8e071d);
+    border: 3px solid #ffd56e;
+    border-radius: 8px;
+    box-shadow: 0 0 35px #ff4a50;
+}
+
+.gift-box::before {
+    content: "";
+    position: absolute;
+    width: 35px;
+    height: 100%;
+    background: linear-gradient(90deg, #ffcf50, #fff0a0, #d38b00);
+    left: 75px;
+}
+
+.gift-box::after {
+    content: "";
+    position: absolute;
+    height: 35px;
+    width: 100%;
+    background: linear-gradient(#ffcf50, #e6a000);
+    top: 43px;
+}
+
+.lid {
+    position: absolute;
+    top: 30px;
+    left: 0;
+    width: 210px;
+    height: 45px;
+    background: linear-gradient(135deg, #ff4b63, #a50928);
+    border: 3px solid #ffd56e;
+    border-radius: 8px;
+    z-index: 3;
+    transform-origin: left bottom;
+    transition: 1s;
+}
+
+.lid::before {
+    content: "";
+    position: absolute;
+    width: 35px;
+    height: 100%;
+    left: 84px;
+    background: linear-gradient(90deg, #ffcf50, #fff0a0);
+}
+
+.bow {
+    position: absolute;
+    top: -15px;
+    left: 85px;
+    z-index: 4;
+    font-size: 38px;
+}
+
+.box-container.open .lid {
+    transform: rotate(-120deg) translateY(-35px);
+}
+
+.box-container.open {
+    transform: translateY(-10px);
+}
+
+.tap-text {
+    margin-top: 25px;
+    color: #ffe3a0;
+    letter-spacing: 2px;
+    animation: twinkle 1.5s infinite alternate;
+}
+
+/* CELEBRATION */
+
+.celebration {
+    display: none;
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.celebration.show {
+    display: block;
+}
+
+.blast {
+    position: absolute;
+    font-size: 40px;
+    animation: blast 2s ease-out forwards;
+}
+
+@keyframes blast {
+    0% { transform: scale(.2); opacity: 0; }
+    40% { transform: scale(2.5) rotate(90deg); opacity: 1; }
+    100% { transform: scale(.5) translateY(-200px); opacity: 0; }
+}
+
+/* ENVELOPE */
+
+.envelope {
+    position: relative;
+    width: 260px;
+    height: 175px;
+    margin: 35px auto;
+    background: #ffe1a1;
+    border-radius: 8px;
+    box-shadow: 0 0 30px #ff9e32;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.envelope::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-left: 130px solid transparent;
+    border-right: 130px solid transparent;
+    border-top: 100px solid #f4a94f;
+    z-index: 2;
+    transform-origin: top;
+    transition: .7s;
+}
+
+.envelope::after {
+    content: "❤️";
+    position: absolute;
+    left: 110px;
+    top: 75px;
+    font-size: 35px;
+    z-index: 3;
+}
+
+.envelope.open::before {
+    transform: rotateX(180deg);
+}
+
+.envelope.open {
+    transform: translateY(20px);
+}
+
+.envelope-label {
+    position: absolute;
+    width: 100%;
+    top: 115px;
+    color: #61200c;
+    font-weight: bold;
+    z-index: 1;
+}
+
+/* LETTER */
+
+.letter {
+    display: none;
+    width: 100%;
+    max-width: 620px;
+    padding: 35px 25px;
+    margin-top: 25px;
+    background: linear-gradient(145deg, #fff4d6, #ffe0a6);
+    color: #5d2516;
+    border-radius: 15px;
+    box-shadow: 0 0 40px #ffb33d;
+    animation: letterOpen 1.2s ease;
+    text-align: left;
+    line-height: 1.9;
+}
+
+.letter.show {
+    display: block;
+}
+
+@keyframes letterOpen {
+    from { opacity: 0; transform: translateY(60px) scale(.8); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.letter h2 {
+    font-family: 'Dancing Script', cursive;
+    text-align: center;
+    font-size: 38px;
+    color: #b33c18;
+    margin-bottom: 20px;
+}
+
+.letter p {
+    margin-bottom: 16px;
+    font-size: 14px;
+}
+
+.signature {
+    font-family: 'Dancing Script', cursive;
+    font-size: 30px;
+    color: #a22a38;
+    text-align: right;
+}
+
+
+/* SECOND SECRET GIFT */
+.final-surprise{display:none;width:100%;max-width:560px;margin:35px auto 15px;padding:25px 18px 30px;border:1px solid #ffd36a;border-radius:24px;background:linear-gradient(145deg,#351126,#17091f);box-shadow:0 0 35px #ff8a2b55;animation:letterOpen 1s ease}
+.final-surprise.show{display:block}
+.final-gift-box{width:190px;height:135px;position:relative;margin:38px auto 12px;cursor:pointer;perspective:700px}
+.final-gift-base{position:absolute;bottom:0;width:190px;height:112px;border:3px solid #ffd36a;border-radius:9px;background:linear-gradient(135deg,#e62c50,#8e071d);box-shadow:0 0 28px #ff4a50}
+.final-gift-base:before{content:"";position:absolute;left:76px;width:32px;height:100%;background:linear-gradient(90deg,#ffcf50,#fff0a0,#d38b00)}
+.final-gift-lid{position:absolute;top:0;left:-8px;width:206px;height:38px;border:3px solid #ffd36a;border-radius:8px;background:linear-gradient(135deg,#ff6680,#a50928);z-index:3;transform-origin:left bottom;transition:transform .9s ease}
+.final-gift-lid:after{content:"";position:absolute;left:84px;width:32px;height:100%;background:linear-gradient(90deg,#ffcf50,#fff0a0)}
+.final-gift-box.open .final-gift-lid{transform:rotate(-115deg) translateY(-24px)}
+.final-gift-bow{position:absolute;z-index:4;top:-30px;left:73px;font-size:42px;transition:.6s}
+.final-gift-box.open .final-gift-bow{transform:translateY(-35px) rotate(20deg);opacity:0}
+.cat-delivery{display:none;position:relative;margin:15px auto 5px;min-height:190px;max-width:430px;align-items:center;justify-content:center;gap:8px;animation:letterOpen .8s ease}
+.cat-delivery.show{display:flex}
+.delivery-cat{position:relative;font-size:105px;line-height:1;filter:drop-shadow(0 0 12px #ffb5d5);animation:catDeliver 1.8s ease-in-out infinite}
+.delivery-paw{position:absolute;right:-10px;top:45px;font-size:39px;transform:rotate(-25deg);transform-origin:bottom left;animation:pawOffer 1.2s ease-in-out infinite alternate}
+.delivery-crackers{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;max-width:190px;gap:5px;padding:12px;border:1px solid #ffcf68;border-radius:18px;background:#ffb52d18;box-shadow:0 0 18px #ff9b3266;animation:crackerOffer 1.5s ease-in-out infinite}
+.indian-cracker{display:inline-flex;flex-direction:column;align-items:center;min-width:66px;padding:7px 4px;color:#ffe5b0;font-size:25px}
+.indian-cracker small{font-size:10px;letter-spacing:.4px;margin-top:3px}
+@keyframes catDeliver{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-9px) rotate(2deg)}}
+@keyframes pawOffer{from{transform:rotate(-35deg) translateY(2px)}to{transform:rotate(8deg) translateY(-5px)}}
+@keyframes crackerOffer{0%,100%{transform:translateX(0) rotate(-2deg)}50%{transform:translateX(5px) rotate(2deg)}}
+.gift-message{color:#ffe7c2;font-size:19px;line-height:1.6;margin:12px auto;font-weight:600;text-shadow:0 0 14px #ff8b36}
+.gift-caption{color:#f7cda7;font-size:12px;line-height:1.7;margin-top:8px}
+
+/* MUSIC CONTROL */
+
+.sound-control {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    z-index: 100;
+    padding: 10px 14px;
+    background: #ffffff15;
+    border: 1px solid #ffd36a;
+    color: white;
+    border-radius: 30px;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    font-size: 12px;
+}
+
+.footer {
+    margin-top: 30px;
+    font-size: 12px;
+    color: #d7a77c;
+}
+
+@media(max-width:500px) {
+    .firework { font-size: 25px; }
+    .letter { padding: 25px 18px; }
+    .heading { font-size: 38px; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="stars" id="stars"></div>
+
+<button class="sound-control" onclick="toggleSound()" id="soundBtn">
+🔊 Sound OFF
+</button>
+
+<div class="celebration" id="celebration"></div>
+
+<!-- PAGE 1: INTRO -->
+
+<section class="page active" id="page1">
+
+    <div class="firework f1">🎆</div>
+    <div class="firework f2">🧨</div>
+    <div class="firework f3">✨</div>
+    <div class="firework f4">🎇</div>
+
+    <div class="small-title">✦ A NIGHT FULL OF MAGIC ✦</div>
+
+    <div class="intro-line">Let the lights of happiness shine...</div>
+
+    <h1 class="heading gold happy">
+        HAPPY<br>DIWALI 🪔
+    </h1>
+
+    <p class="subtitle">
+        ✨ A festival of lights, love, laughter and endless happiness ✨
+    </p>
+
+    <div class="diya">🪔</div>
+
+    <button class="btn" onclick="nextPage(2)">
+        CELEBRATE WITH ME ✨
+    </button>
+
+    <div class="footer">Made with ❤️ and a little Diwali magic</div>
+
+</section>
+
+
+<!-- PAGE 2: NAMASTE DEVI JI  -->
+
+<section class="page" id="page2">
+
+    <div class="firework f1">🎆</div>
+    <div class="firework f2">✨</div>
+
+    <div class="welcome-card">
+
+        <div class="namaste devi ji">🙏</div>
+
+        <h1 class="heading gold">Namaste! Devi ji ☺</h1>
+
+        <p class="subtitle">
+            May this beautiful festival bring a thousand reasons
+            to smile into your life.
+        </p>
+
+        <div class="diya">🪔</div>
+
+        <p style="color:#ffdb91">
+            A little surprise is waiting for you...
+        </p>
+
+        <button class="btn" onclick="nextPage(3)">
+            GO NEXT ❤️
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- PAGE 3: SURPRISE BOX -->
+
+<section class="page" id="page3">
+
+    <div class="firework f1">🎇</div>
+    <div class="firework f2">🎆</div>
+
+    <div class="small-title">✦ SOMETHING SPECIAL FOR YOU ✦</div>
+
+    <h1 class="surprise-title">
+        A Diwali Surprise For You!
+    </h1>
+
+    <p class="subtitle">
+        A little box filled with happiness, love and magic.
+    </p>
+
+    <p style="color:#ffca71;margin-top:15px;">
+        Specially made for you by JANHU 
+    </p>
+
+    <div class="box-container" id="giftBox" onclick="openGift()">
+        <div class="bow">🎀</div>
+        <div class="lid"></div>
+        <div class="gift-box"></div>
+    </div>
+
+    <p class="tap-text" id="tapText">
+        🎁 TAP TO OPEN YOUR SURPRISE 🎁
+    </p>
+
+    <div id="letterPrompt" style="display:none;margin-top:25px;">
+        <p style="font-size:35px;">💌✨</p>
+        <h2 class="surprise-title">One More Little Surprise!</h2>
+        <p class="subtitle">There is something special waiting inside...</p>
+
+        <div class="envelope" id="envelope" onclick="openLetter()">
+            <div class="envelope-label">A LETTER FOR DEVI JI ❤️</div>
+        </div>
+
+        <button class="btn" onclick="openLetter()">
+            💌 OPEN THE LETTER 
+        </button>
+    </div>
+
+    <div class="letter" id="letter">
+
+        <h2>✨ A Little Letter For Devi ji ✨</h2>
+
+        <p>Dear devi ji , ❤️</p>
+
+        <p>
+            On this beautiful festival of lights, I just want to
+            send you a little happiness and a big smile.
+        </p>
+
+        <p>
+            May your life always shine brighter than a thousand
+            diyas, may your dreams sparkle like the stars, and
+            may every moment bring you countless reasons to smile.
+        </p>
+
+        <p>
+            Just like the beautiful lights of Diwali brighten
+            the darkest night, may happiness always find its way
+            into your heart.
+        </p>
+
+        <p>
+            Keep smiling, keep shining, and never stop being
+            the wonderful person you are.
+        </p>
+
+        <p>
+            This little surprise is not just a gift. It is a
+            small reminder that someone wanted to make your
+            Diwali a little more special. ❤️
+        </p>
+
+        <p>
+            I hope this little celebration brings a beautiful
+            smile to your face. Thank you
+        </p>
+
+        <p style="text-align:center;font-size:25px;">
+            🪔 🎆 🧨 ✨ 🎇 🪔
+        </p>
+
+        <h2 style="font-size:32px;">
+            One more surprise is waiting for you ! ❤️
+        </h2>
+
+        <p style="text-align:center;font-weight:bold;">
+            May your world always glow with love and happiness.
+        </p>
+
+        <div class="signature">
+            With lots of love,<br>
+            JANHU ❤️
+        </div>
+
+        <p style="text-align:center;margin-top:20px;font-weight:bold;">
+            🎁 ONCE AGAIN HAPPY DIWALI 🎁
+        </p>
+
+        <p style="text-align:center;font-size:25px;">
+            🪔✨🎆  ENJOY THE DAY🎆✨🪔
+        </p>
+
+    </div>
+
+    <div class="final-surprise" id="finalSurprise">
+        <p class="small-title">✦ WAIT... ONE LAST SECRET ✦</p>
+        <h2 class="surprise-title">A Tiny Gift from Me! 🎁</h2>
+        <p class="subtitle">There's one more little surprise waiting for you, Devi Ji...</p>
+        <div class="final-gift-box" id="finalGiftBox" onclick="openFinalGift()">
+            <div class="final-gift-bow">🎀</div>
+            <div class="final-gift-lid"></div>
+            <div class="final-gift-base"></div>
+        </div>
+        <p class="tap-text" id="finalGiftHint">🎁 TAP THIS BOX FOR YOUR SECRET GIFT 🎁</p>
+        <div class="cat-delivery" id="catDelivery">
+            <div class="delivery-cat" aria-label="Cute cat delivering crackers">🐱<span class="delivery-paw">🐾</span></div>
+            <div class="delivery-crackers">
+                <span class="indian-cracker">🎇<small>ANAR</small></span>
+                <span class="indian-cracker">🪔<small>PHULJHARI</small></span>
+                <span class="indian-cracker">🌀<small>CHAKRI</small></span>
+                <span class="indian-cracker">🚀<small>ROCKET</small></span>
+            </div>
+        </div>
+        <p class="gift-message" id="giftMessage" style="display:none;">Ye lo Devi Ji, enjoy the day! ❤️</p>
+        <p class="gift-caption" id="giftCaption" style="display:none;">Your tiny cat delivery partner brought you a little Diwali sparkle. 🐾✨</p>
+    </div>
+
+    <div class="footer">
+        A little Diwali magic, created especially for you ❤️
+    </div>
+
+</section>
+
+
+<script>
+
+/* CREATE STARS */
+
+const stars = document.getElementById("stars");
+
+for(let i=0; i<80; i++) {
+    let star = document.createElement("span");
+    star.className = "star";
+    star.innerHTML = "✦";
+    star.style.left = Math.random()*100+"%";
+    star.style.top = Math.random()*100+"%";
+    star.style.fontSize = (Math.random()*15+5)+"px";
+    star.style.animationDelay = Math.random()*3+"s";
+    stars.appendChild(star);
+}
+
+
+/* FLOATING DIWALI EMOJIS */
+
+const emojis = ["🪔","✨","🌟","🎆","🎇","❤️","🌸"];
+
+setInterval(() => {
+
+    let el = document.createElement("div");
+    el.className = "floating";
+    el.innerHTML = emojis[Math.floor(Math.random()*emojis.length)];
+
+    el.style.left = Math.random()*100+"%";
+    el.style.animationDuration = (Math.random()*4+5)+"s";
+
+    document.body.appendChild(el);
+
+    setTimeout(() => el.remove(), 9000);
+
+}, 700);
+
+
+/* PAGE NAVIGATION */
+
+function nextPage(num) {
+
+    document.querySelectorAll(".page").forEach(p => {
+        p.classList.remove("active");
+    });
+
+    document.getElementById("page"+num).classList.add("active");
+
+    window.scrollTo({top:0,behavior:"smooth"});
+
+    playCracker();
+}
+
+
+/* SOUND EFFECTS - WEB AUDIO */
+
+let audioCtx;
+let soundEnabled = false;
+
+function playCracker() {
+
+    if(!soundEnabled) return;
+
+    if(!audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    }
+
+    if(audioCtx.state === "suspended") audioCtx.resume();
+
+    for(let i=0;i<3;i++) {
+
+        let buffer = audioCtx.createBuffer(
+            1, audioCtx.sampleRate*.18, audioCtx.sampleRate
+        );
+
+        let data = buffer.getChannelData(0);
+
+        for(let j=0;j<data.length;j++) {
+            data[j] = Math.random()*2-1;
+        }
+
+        let source = audioCtx.createBufferSource();
+        let gain = audioCtx.createGain();
+
+        source.buffer = buffer;
+
+        gain.gain.setValueAtTime(.35, audioCtx.currentTime+i*.25);
+        gain.gain.exponentialRampToValueAtTime(
+            .001, audioCtx.currentTime+i*.25+.18
+        );
+
+        source.connect(gain);
+        gain.connect(audioCtx.destination);
+
+        source.start(audioCtx.currentTime+i*.25);
+    }
+}
+
+function toggleSound() {
+
+    soundEnabled = !soundEnabled;
+
+    document.getElementById("soundBtn").innerHTML =
+        soundEnabled ? "🔊 Sound ON" : "🔇 Sound OFF";
+
+    if(soundEnabled) {
+        if(!audioCtx) {
+            audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        }
+        audioCtx.resume();
+        playCracker();
+    }
+}
+
+
+/* FIREWORK CELEBRATION */
+
+function fireworks() {
+
+    const container = document.getElementById("celebration");
+
+    container.classList.add("show");
+
+    const blastEmojis = ["🎆","🎇","✨","💥","🌟","🎉","🪔"];
+
+    for(let i=0;i<45;i++) {
+
+        let blast = document.createElement("div");
+
+        blast.className = "blast";
+        blast.innerHTML =
+            blastEmojis[Math.floor(Math.random()*blastEmojis.length)];
+
+        blast.style.left = Math.random()*100+"%";
+        blast.style.top = Math.random()*100+"%";
+        blast.style.animationDelay = Math.random()*1.5+"s";
+
+        container.appendChild(blast);
+
+        setTimeout(() => blast.remove(),3000);
+    }
+
+    playCracker();
+
+    setTimeout(() => {
+        container.classList.remove("show");
+    },3000);
+}
+
+
+/* OPEN GIFT BOX */
+
+let giftOpened = false;
+
+function openGift() {
+
+    if(giftOpened) return;
+
+    giftOpened = true;
+
+    document.getElementById("giftBox").classList.add("open");
+
+    document.getElementById("tapText").innerHTML =
+        "🎉 YOUR SURPRISE IS OPENING! 🎉";
+
+    fireworks();
+
+    setTimeout(() => {
+
+        document.getElementById("letterPrompt").style.display = "block";
+
+        document.getElementById("tapText").innerHTML =
+            "A SPECIAL LETTER FOR DEVI JI ";
+
+        document.getElementById("letterPrompt").scrollIntoView({
+            behavior:"smooth",
+            block:"center"
+        });
+
+    },1300);
+}
+
+
+/* OPEN LETTER */
+
+let letterOpened = false;
+
+function openLetter() {
+
+    if(letterOpened) return;
+
+    letterOpened = true;
+
+    document.getElementById("envelope").classList.add("open");
+
+    fireworks();
+
+    setTimeout(() => {
+
+        document.getElementById("letter").classList.add("show");
+
+        document.getElementById("letter").scrollIntoView({
+            behavior:"smooth",
+            block:"start"
+        });
+
+        document.getElementById("letterPrompt").querySelector("button")
+            .style.display = "none";
+
+        document.getElementById("finalSurprise").classList.add("show");
+
+    },800);
+
+}
+
+
+/* OPEN THE LAST SECRET GIFT: CAT DELIVERY */
+let finalGiftOpened = false;
+function openFinalGift() {
+    if (finalGiftOpened) return;
+    finalGiftOpened = true;
+    document.getElementById("finalGiftBox").classList.add("open");
+    document.getElementById("finalGiftHint").innerHTML = "🐾 YOUR LITTLE DELIVERY PARTNER IS HERE!";
+    fireworks();
+    setTimeout(() => {
+        document.getElementById("catDelivery").classList.add("show");
+        document.getElementById("giftMessage").style.display = "block";
+        document.getElementById("giftCaption").style.display = "block";
+        document.getElementById("finalSurprise").scrollIntoView({behavior:"smooth",block:"center"});
+    }, 700);
+}
+
+</script>
+
+</body>
+</html>
